@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/FontFlip/static/css/main.13e42673.css",
+    "main.js": "/FontFlip/static/js/main.529d6ede.js",
+    "static/js/453.8b15a427.chunk.js": "/FontFlip/static/js/453.8b15a427.chunk.js",
+    "index.html": "/FontFlip/index.html",
+    "main.13e42673.css.map": "/FontFlip/static/css/main.13e42673.css.map",
+    "main.529d6ede.js.map": "/FontFlip/static/js/main.529d6ede.js.map",
+    "453.8b15a427.chunk.js.map": "/FontFlip/static/js/453.8b15a427.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.13e42673.css",
+    "static/js/main.529d6ede.js"
+  ]
+}
