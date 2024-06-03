@@ -19,7 +19,7 @@ var font_list = [
 
 const cards = [];
 const selectedFonts = [];
-while (selectedFonts.length < 9) {
+while (selectedFonts.length < 6) {
   const randomIndex = Math.floor(Math.random() * font_list.length);
   const randomFont = font_list[randomIndex];
   if (!selectedFonts.includes(randomFont)) {
