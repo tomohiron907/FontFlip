@@ -5,63 +5,21 @@ var font_list = [
   "Arial",
   "Helvetica",
   "Times New Roman",
-  "Times",
   "Courier New",
-  "Courier",
   "Verdana",
   "Georgia",
-  "Palatino",
-  "Garamond",
-  "Bookman",
   "Comic Sans MS",
   "Trebuchet MS",
   "Arial Black",
   "Impact",
   "Lucida Sans Unicode",
   "Tahoma",
-  "Geneva",
-  "Arial Narrow",
-  "Arial Rounded MT",
-  "Century Gothic",
-  "Franklin Gothic Medium",
-  "Gill Sans",
-  "Lucida Sans",
-  "Optima",
-  "Tw Cen MT",
-  "Futura",
-  "Avant Garde",
-  "ITC Officina Sans",
-  "Baskerville",
-  "Big Caslon",
-  "Bodoni MT",
-  "Calisto MT",
-  "Cambria",
-  "Didot",
-  "Rockwell",
-  "Perpetua",
-  "Myriad Pro",
-  "Helvetica Neue",
-  "Avenir",
-  "Roboto",
-  "Open Sans",
-  "Lato",
-  "Montserrat",
-  "PT Sans",
-  "Ubuntu",
-  "Droid Sans",
-  "Noto Sans",
-  "Source Sans Pro",
-  "Fira Sans",
-  "Poppins",
-  "Quicksand",
-  "Raleway",
   "Segoe UI",
-  "Trebuchet MS",
 ];
 
 const cards = [];
 const selectedFonts = [];
-while (selectedFonts.length < 8) {
+while (selectedFonts.length < 9) {
   const randomIndex = Math.floor(Math.random() * font_list.length);
   const randomFont = font_list[randomIndex];
   if (!selectedFonts.includes(randomFont)) {
@@ -111,9 +69,9 @@ function Card({ card, isFlipped, onClick }) {
       <div className="card-inner">
         <div className="card-front"></div>
         <div className="card-back" style={{ fontFamily: card.value }}>
-          {!showDetails && ('ABC')}
+          {!showDetails && ('The quick brown fox jumps over the lazy dog.')}
           {showDetails && (
-            <div className="card-details">
+            <div className="card-details" style={{ fontFamily: card.value }}>
               {"Font: " + card.value}
               <p>{card.details}</p>
             </div>
@@ -152,26 +110,28 @@ export default function Board() {
 
   return (
     <>
-    
+    <h1>Font Flip</h1>
     <div className="container">
+      
+      <div>
+        <div className="game-board">
+          {cards_list.map((card) => (
+            <Card
+              key={card.id}
+              card={card}
+              isFlipped={flippedCards.includes(card) || matchedCards.includes(card.id)}
+              onClick={() => handleCardClick(card)}
+            />
+          ))}
+        </div>
+      </div>
+      
+    </div>
+    
       <div className="font-display">
         <FontDisplay />
       </div>
-      <div>
-      <h1>Font Flip</h1>
-      <div className="game-board">
-        {cards_list.map((card) => (
-          <Card
-            key={card.id}
-            card={card}
-            isFlipped={flippedCards.includes(card) || matchedCards.includes(card.id)}
-            onClick={() => handleCardClick(card)}
-          />
-        ))}
-      </div>
-      </div>
-    </div>
-      
+    
     </>
   );
 }
